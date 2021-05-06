@@ -1,0 +1,7 @@
+<% if @model == 'user' %>
+  <h3>【Usersモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'users/index', users: @records %>
+<% else @model == 'books' %>
+  <h3>【Booksモデルの検索結果】検索ワード：<%= @content %></h3>
+    <%= render 'books/index', books: @records %>
+<% end %>
