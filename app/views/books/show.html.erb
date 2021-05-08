@@ -17,6 +17,7 @@
           </td>
           <td><%= link_to @book.title, book_path(@book) %></td>
           <td><%= @book.body %></td>
+          <td class="favorite"><%= render "favorites/favorite", book: @book %></td>
           <% if @book.user == current_user %>
           <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
           <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
@@ -47,19 +48,19 @@
 
 
 
-      <% if @book.favorited_by?(current_user) %>
-            <p>
-              <%= link_to book_favorites_path(@book), method: :delete do %>
-                ❤<%= @book.favorites.count %> いいね
-              <% end %>
-            </p>
-          <% else %>
-            <p>
-              <%= link_to book_favorites_path(@book), method: :post do %>
-                ♡<%= @book.favorites.count %>いいね
-              <% end %>
-            </p>
-          <% end %>
+      <!--<% if @book.favorited_by?(current_user) %>-->
+      <!--  <p>-->
+      <!--    <%= link_to book_favorites_path(@book), method: :delete do %>-->
+      <!--      ❤<%= @book.favorites.count %> いいね-->
+      <!--    <% end %>-->
+      <!--  </p>-->
+      <!--<% else %>-->
+      <!--  <p>-->
+      <!--    <%= link_to book_favorites_path(@book), method: :post do %>-->
+      <!--      ♡<%= @book.favorites.count %>いいね-->
+      <!--    <% end %>-->
+      <!--  </p>-->
+      <!--<% end %>-->
     </div>
   </div>
 </div>
